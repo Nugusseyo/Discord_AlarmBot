@@ -424,7 +424,6 @@ async def on_ready():
     print(f"{bot.user} 로그인 성공!")
 
 import os
-bot.run(os.environ["DISCORD_TOKEN"])
 
 from flask import Flask
 from threading import Thread
@@ -441,3 +440,6 @@ def run_web():
 def keep_alive():
     t = Thread(target=run_web)
     t.start()
+
+    keep_alive()
+bot.run(os.environ["DISCORD_TOKEN"])
