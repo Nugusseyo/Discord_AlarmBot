@@ -5,6 +5,9 @@ from discord.ext import commands
 from discord import app_commands
 from discord.ext import tasks
 from datetime import datetime
+from datetime import datetime, timezone, timedelta
+
+KST = timezone(timedelta(hours=9))
 
 
 alarms = []
@@ -142,7 +145,7 @@ class AlarmView(discord.ui.View):
 @tasks.loop(seconds=20)
 async def check_alarm():
 
-    now = datetime.now()
+    now = datetime.now(KST)
 
     current_dt = datetime.strptime(
         now.strftime("%y/%m/%d %p %I:%M"),
