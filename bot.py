@@ -441,5 +441,5 @@ def keep_alive():
     t = Thread(target=run_web)
     t.start()
 
-    keep_alive()
+keep_alive()
 bot.run(os.environ["DISCORD_TOKEN"])
